@@ -19,8 +19,11 @@ class BtbookListParser(ListParser):
     DETAIL_URL = {"attribute": "href", "params": {"selector": "div.item-title > h3 > a"}, "method": "select"}
 
     CONTAIN = {"params": {"selector": "div.item-list > ul > li"}, "method": "select"}
+    CONTAIN_SIZE = re.compile('span class="lightColor">(.*?)</span>')
     NUM_PAGE = {}
-    FIELD_TEXT_RE = re.compile('decodeURIComponent\((.*?)\)')
+    PAGES = {"params": {"selector": "div.bottom-pager"}, "method": "select"}
+    CURRENT = re.compile('<span>(\d+)</span>')
+    HREF_NUM = re.compile('<a href="(.*?)">(\d+)</a>')
 
     @classmethod
     def decode_field(cls, text):
@@ -70,7 +73,12 @@ class BtbookListParser(ListParser):
         con_list = list()
         tags = cls.find_tags(soup, cls.CONTAIN)
         for tag in tags:
-            one = cls.decode_field(str(tag))
+            text = cls.decode_field(str(tag))
+            size = cls.CONTAIN_SIZE.findall(str(soup))[0]
+            one = {
+                "text": text,
+                "size": size
+            }
             con_list.append(one)
         return con_list
 
@@ -79,6 +87,17 @@ class BtbookListParser(ListParser):
         detail_url = cls.find_extract_tag_attribute(soup, cls.DETAIL_URL)
         detail_url = urljoin(cls.BASE_URL, detail_url)
         return detail_url
+
+    @classmethod
+    def get_pages(cls, soup):
+        page_tag = cls.find_tag(soup, cls.PAGES)
+        pages = dict()
+        papes_result = cls.HREF_NUM.findall(str(page_tag))
+        for page in papes_result:
+            pages[page[1]] = urljoin(cls.BASE_URL, page[0])
+        current = cls.CURRENT.findall(str(page_tag))[0]
+        pages[current] = "#"
+        return pages
 
     @classmethod
     def get_tags(cls, soup):
@@ -101,29 +120,45 @@ class BtbookListParser(ListParser):
             one_item.detail_url = cls.get_detail_url(tag)
             one_item.contain = cls.get_contain(tag)
             item_list.append(one_item)
-        return item_list
+        ex_meta = dict()
+        ex_meta["pages"] = cls.get_pages(soup)
+        return item_list, ex_meta
 
 
 class BtbookDetailParser(DetailParser):
+    FIELD_TEXT_RE = re.compile('decodeURIComponent\((.*?)\)')
     TITLE = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    FILE_TYPE = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    FILE_SIZE = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    CREATE_TIME = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    HOT_STROE = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    FILE_COUNT = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    MAGNET_LINK = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
+    FILE_TYPE = {"attribute": "text", "params": {"selector": "table.detail-table td:nth-of-type(1)"},
+                 "method": "select"}
+    CREATE_TIME = {"attribute": "text", "params": {"selector": "table.detail-table td:nth-of-type(2)"},
+                   "method": "select"}
+    HOT_SCORE = {"attribute": "text", "params": {"selector": "table.detail-table td:nth-of-type(3)"},
+                 "method": "select"}
+    FILE_SIZE = {"attribute": "text", "params": {"selector": "table.detail-table td:nth-of-type(4)"},
+                 "method": "select"}
+    FILE_COUNT = {"attribute": "text", "params": {"selector": "table.detail-table td:nth-of-type(5)"},
+                  "method": "select"}
+    MAGNET_LINK = re.compile(r'<a href="magnet.*?">(.*?)</a>')
     TAGS = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
-    CONTAINT = {"attribute": "text", "params": {"selector": "h2"}, "method": "select"}
+    CONTAIN = {"params": {"selector": "ol > li"}, "method": "select"}
+    CONTAIN_SIZE = {"params": {"selector": "span"}, "method": "select"}
+
+    @classmethod
+    def decode_field(cls, text):
+        regex_result = cls.FIELD_TEXT_RE.findall(text)
+        if not regex_result:
+            field_text = text
+        else:
+            field_text = regex_result[0]
+            field_text = eval(field_text)
+            field_text = unquote(field_text)
+        return field_text
 
     @classmethod
     def get_title(cls, soup):
         title = cls.find_extract_tag_attribute(soup, cls.TITLE)
+        title = cls.decode_field(title)
         return title
-
-    @classmethod
-    def get_mtags(cls, soup):
-        tags = cls.find_extract_tag_attribute(soup, cls.TAGS)
-        return tags
 
     @classmethod
     def get_file_type(cls, soup):
@@ -142,7 +177,7 @@ class BtbookDetailParser(DetailParser):
 
     @classmethod
     def get_hot_score(cls, soup):
-        hot_score = cls.find_extract_tag_attribute(soup, cls.HOT_STROE)
+        hot_score = cls.find_extract_tag_attribute(soup, cls.HOT_SCORE)
         return hot_score
 
     @classmethod
@@ -152,16 +187,33 @@ class BtbookDetailParser(DetailParser):
 
     @classmethod
     def get_magnet_link(cls, soup):
-        magnet_link = cls.find_extract_tag_attribute(soup, cls.MAGNET_LINK)
+        magnet_link = cls.MAGNET_LINK.findall(str(soup))[0]
         return magnet_link
 
     @classmethod
     def get_contain(cls, soup):
-        contain = cls.find_extract_tag_attribute(soup, cls.CONTAINT)
-        return contain
+        con_list = list()
+        tags = cls.find_tags(soup, cls.CONTAIN)
+        for tag in tags:
+            text = cls.decode_field(str(tag))
+            size = cls.find_extract_tag_attribute(tag, cls.CONTAIN_SIZE)
+            one = {
+                "text": text,
+                "size": size
+            }
+            con_list.append(one)
+        return con_list
 
     @classmethod
-    def run(self, document):
-        soup = self.get_soup(document)
+    def run(cls, document):
+        soup = cls.get_soup(document)
         meta = DetailItem()
+        meta.title = cls.get_title(soup)
+        meta.file_type = cls.get_file_type(soup)
+        meta.create_time = cls.get_create_time(soup)
+        meta.hot_score = cls.get_hot_score(soup)
+        meta.file_size = cls.get_file_size(soup)
+        meta.file_count = cls.get_file_count(soup)
+        meta.magnet_link = cls.get_magnet_link(soup)
+        meta.containt = cls.get_contain(soup)
         return meta

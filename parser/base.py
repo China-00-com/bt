@@ -23,10 +23,7 @@ class Item(object):
 
     def show(self):
         for k, v in self.to_dict().items():
-            if isinstance(v, list):
-                print k, ":", "\n".join(v)
-            else:
-                print k, ":", v
+            print k, ":", v
         print "*" * 100
 
 
@@ -51,7 +48,6 @@ class DetailItem(Item):
         self.hot_score = ""
         self.file_count = ""
         self.magnet_link = ""
-        self.tags = ""
         self.containt = ""
 
 
@@ -160,7 +156,7 @@ class ListParser(BaseParser):
         pass
 
     @classmethod
-    def get_num_page(cls, soup):
+    def get_pages(cls, soup):
         pass
 
 
@@ -169,9 +165,7 @@ class DetailParser(BaseParser):
     def get_title(cls, soup):
         pass
 
-    @classmethod
-    def get_mtags(cls, soup):
-        pass
+
 
     @classmethod
     def get_file_type(cls, soup):
