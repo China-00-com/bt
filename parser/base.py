@@ -11,17 +11,38 @@ from bs4 import Tag, BeautifulSoup
 from datetime import datetime, timedelta
 
 
-class ListItem(object):
+class Item(object):
+    def to_dict(self):
+        return dict(self.__dict__)
+
+    @classmethod
+    def from_dict(cls, d):
+        self = cls()
+        for k, v in d.items():
+            self.__dict__[k] = v
+
+    def show(self):
+        for k, v in self.to_dict().items():
+            if isinstance(v, list):
+                print k, ":", "\n".join(v)
+            else:
+                print k, ":", v
+        print "*" * 100
+
+
+class ListItem(Item):
     def __init__(self):
         self.title = ""
         self.size = ""
         self.file_type = ""
         self.last_down = ""
-        self.time = ""
+        self.create_time = ""
+        self.hot = 0
         self.contain = list()
+        self.detail_url = ""
 
 
-class DetailItem(object):
+class DetailItem(Item):
     def __init__(self):
         self.title = ""
         self.file_type = ""
@@ -123,7 +144,7 @@ class ListParser(BaseParser):
         pass
 
     @classmethod
-    def get_time(cls, soup):
+    def get_create_time(cls, soup):
         pass
 
     @classmethod
@@ -132,6 +153,14 @@ class ListParser(BaseParser):
 
     @classmethod
     def get_detail_url(cls, soup):
+        pass
+
+    @classmethod
+    def get_hot(cls, soup):
+        pass
+
+    @classmethod
+    def get_num_page(cls, soup):
         pass
 
 
@@ -167,7 +196,6 @@ class DetailParser(BaseParser):
     @classmethod
     def get_magnet_link(cls, soup):
         pass
-
 
     @classmethod
     def get_contain(cls, soup):
