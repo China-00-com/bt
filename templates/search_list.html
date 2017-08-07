@@ -12,7 +12,7 @@
         <div id="sbox">
             <form name="btform" action="/">
                 <input type="text" autocomplete="off" id="input" name="kw" placeholder="请输入电影、音乐、软件等资源名称" class="stbox"
-                       value="逃出绝命镇"/>
+                       value="{{ title }}"/>
                 <input type="submit" onmouseout="this.className=''" onmousedown="this.className='mousedown'"
                        onmouseover="this.className='hover'" value="搜索" id="sbutton"/>
             </form>
@@ -20,40 +20,31 @@
     </div>
 </div>
 
-
-<div class="order"></div>
 <div class="ding">
     <div id="container">
         <div class="main">
             <ul class="mlist">
-                {% for %}
+                {% for item in list_item %}
                 <li>
-                    <div class="T1"><a href="/detail?ori_url={{ item.detail_url }}" target="_blank">{{ item.title }}</a>
+                    <div class="T1"><a href="/detail?ori_url={{ item.detail_url }}"
+                                       target="_blank">{{ item.title }}</a>
                     </div>
                     <dl class="BotInfo">
 <span>
-<span class="ctime">大小: {{ item.file_size }}
-文件数: {{ item.file_count }}
+<span class="ctime">大小: {{ item.size }}
+文件数:
 创建日期: {{ item.create_time }}
-热度: {{ item.hot_score }}</span>
+热度: {{ item.hot }}</span>
 </span></dt>
                     </dl>
                     <div class="dInfo">请使用迅雷，旋风，百度云盘离线，115网盘离线等进行下载</div>
                 </li>
+                {% end %}
                 <div id="mpages">
                     <div class="pg">
-                        <a href="/word/逃出绝命镇.html"> 首页 </a>
-                        <a href="/word/逃出绝命镇_1.html"> 1 </a>
-                        <a href="/word/逃出绝命镇_2.html"> 2 </a>
-                        <a href="/word/逃出绝命镇_3.html"> 3 </a>
-                        <a href="/word/逃出绝命镇_4.html"> 4 </a>
-                        <a href="/word/逃出绝命镇_5.html"> 5 </a>
-                        <a href="/word/逃出绝命镇_6.html"> 6 </a>
-                        <a href="/word/逃出绝命镇_6.html"> 7 </a>
-                        <a href="/word/逃出绝命镇_6.html"> 8 </a>
-                        <a href="/word/逃出绝命镇_6.html"> 9 </a>
-                        <a href="/word/逃出绝命镇_6.html"> 10 </a>
-                        <a href="/word/逃出绝命镇_100.html"> 尾页 </a>
+                        {% for page in pages %}
+                        <a href="/search?word={{ title }}&url={{ page[1] }}"> {{ page[0] }} </a>
+                        {% end %}
                     </div>
                 </div>
             </ul>

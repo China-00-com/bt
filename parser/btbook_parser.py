@@ -1,6 +1,7 @@
 # coding:utf-8
 
 import re
+from urllib import urlencode,quote
 from urlparse import unquote, urljoin
 from parser.base import HotWordParser
 from parser.base import ListParser
@@ -8,7 +9,6 @@ from parser.base import DetailParser
 from parser.base import HotWordItem
 from parser.base import ListItem
 from parser.base import DetailItem
-import requests
 
 
 class BtbookListParser(ListParser):
@@ -27,6 +27,7 @@ class BtbookListParser(ListParser):
     PAGES = {"params": {"selector": "div.bottom-pager"}, "method": "select"}
     CURRENT = re.compile('<span>(\d+)</span>')
     HREF_NUM = re.compile('<a href="(.*?)">(\d+)</a>')
+    FIELD_TEXT_RE = re.compile('decodeURIComponent\((.*?)\)')
 
     @classmethod
     def decode_field(cls, text):
@@ -35,6 +36,7 @@ class BtbookListParser(ListParser):
             field_text = text
         else:
             field_text = regex_result[0]
+            print field_text
             field_text = eval(field_text)
             field_text = unquote(field_text)
         return field_text
@@ -94,12 +96,15 @@ class BtbookListParser(ListParser):
     @classmethod
     def get_pages(cls, soup):
         page_tag = cls.find_tag(soup, cls.PAGES)
-        pages = dict()
+        pages = list()
         papes_result = cls.HREF_NUM.findall(str(page_tag))
         for page in papes_result:
-            pages[page[1]] = urljoin(cls.BASE_URL, page[0])
+            list_url = urljoin(cls.BASE_URL, page[0])
+            pages.append((int(page[1]), quote(list_url)))
         current = cls.CURRENT.findall(str(page_tag))[0]
-        pages[current] = "#"
+        pages.append((int(current), "#"))
+        pages = sorted(pages, key=lambda x: x[0])
+        print pages
         return pages
 
     @classmethod
@@ -108,22 +113,24 @@ class BtbookListParser(ListParser):
         return tags
 
     @classmethod
-    def run(cls, word):
+    def run(cls, document):
         item_list = list()
-        document = requests.get("http://www.btbook.org/%s-first-asc-1.html" % word).content
         soup = cls.get_soup(document)
         tags = cls.get_tags(soup)
         for tag in tags:
-            one_item = ListItem()
-            one_item.title = cls.get_title(tag)
-            one_item.file_type = cls.get_file_type(tag)
-            one_item.size = cls.get_file_size(tag)
-            one_item.last_down = cls.get_last_down(tag)
-            one_item.create_time = cls.get_create_time(tag)
-            one_item.hot = cls.get_hot(tag)
-            one_item.detail_url = cls.get_detail_url(tag)
-            one_item.contain = cls.get_contain(tag)
-            item_list.append(one_item)
+            try:
+                one_item = ListItem()
+                one_item.title = cls.get_title(tag)
+                one_item.file_type = cls.get_file_type(tag)
+                one_item.size = cls.get_file_size(tag)
+                one_item.last_down = cls.get_last_down(tag)
+                one_item.create_time = cls.get_create_time(tag)
+                one_item.hot = cls.get_hot(tag)
+                one_item.detail_url = cls.get_detail_url(tag)
+                one_item.contain = cls.get_contain(tag)
+                item_list.append(one_item)
+            except:
+                pass
         ex_meta = dict()
         ex_meta["pages"] = cls.get_pages(soup)
         return item_list, ex_meta
