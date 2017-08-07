@@ -51,6 +51,11 @@ class DetailItem(Item):
         self.containt = ""
 
 
+class HotWordItem(Item):
+    def __init__(self):
+        self.word = ""
+
+
 class BaseParser(object):
     @classmethod
     def find_tag(cls, root, param):
@@ -122,6 +127,15 @@ class BaseParser(object):
         return tags
 
 
+class HotWordParser(BaseParser):
+    @classmethod
+    def get_hot_words(cls, soup):
+        pass
+
+    def run(cls, **kwargs):
+        pass
+
+
 class ListParser(BaseParser):
     @classmethod
     def get_title(cls, soup):
@@ -164,8 +178,6 @@ class DetailParser(BaseParser):
     @classmethod
     def get_title(cls, soup):
         pass
-
-
 
     @classmethod
     def get_file_type(cls, soup):

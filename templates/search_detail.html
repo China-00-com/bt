@@ -1,373 +1,306 @@
+{% extends "base.html" %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>逃出绝命镇.2017.中英字幕￡CMCT呆呆 - 磁力云 - 种子搜索神器|种子搜索网站|种子搜索|磁力链接|磁力搜索|番号搜索|磁力下载|磁力云|BT种子|torrent种子|磁力资源| torrentkitty|btspread（一切精品资源尽在www.ciliyun.org）</title>
-<meta name="keywords" content="|种子搜索神器|种子搜索网站|种子搜索|磁力链接|磁力搜索|番号搜索|磁力下载|磁力云|BT种子|torrent种子|磁力资源| torrentkitty|btspread|"/>
-<meta name="description" content="磁力云（ciliyun.net）是一个BT种子、磁力链接搜索网站，网站索引数千万的BT种子、磁力链接，包括电影、剧集、音乐、图书、软件、动漫、软件、教程、图片、综艺、游戏等资源，因此又被誉为BT种子搜索神器！"/>
-<link rel="shortcut icon" href="/favicon.ico"/>
-<link href="/template/style.css" type="text/css" rel="stylesheet"/>
-</head>
-<body id="content">
-<div class="header">
-<div class="ding1">
-<a style="float: left; line-height: 36px;color:#fff" href="http://www.ciliyun.org/">首页</a>
-<a style="float: left; line-height: 36px; padding-left: 20px;color:#fff" href="http://www.ciliyun.org/Index/about.html" target="_blank">广告投放</a>
-<a style="float: left; line-height: 36px; padding-left: 20px;color:#fff" href="http://www.ciliyun.org/Index/jc.html" target="_blank">教程</a>
-<a style="float: left; line-height: 36px; padding-left: 20px;color:#fff" href="http://www.ciliyun.org/Index/cl.html" target="_blank">磁力转种子</a>
-<a class="ding-ad" style="float: left; line-height: 36px; padding-left: 20px;color:#fff" href="http://www.lunvshen.co" target="_blank">卤女神福利站</a>
-<a style="float: right; line-height: 36px;color:#fff" href="http://www.jiyouliao.com/" target="_blank">极有料</a></div>
-</div>
-</div>
 
+{% block ex_css %}
+<link href="{{ static_url('css/style_search.css') }}" type="text/css" rel="stylesheet"/>
+{% end %}
+
+{% block content %}
 <div id="header">
+    <div class="ding">
+        <h1 id="logo"><a href="/" title="磁力云"><img src="{{ static_url('img/logo-s.png') }}" width="180" height="40"
+                                                   alt="磁力云(www.ciliyun.org)"/></a></h1>
+        <div id="sbox">
+            <form name="btform" action="/">
+                <input type="text" autocomplete="off" id="input" name="kw" placeholder="请输入电影、音乐、软件等资源名称" class="stbox"
+                       value=""/>
+                <input type="submit" onmouseout="this.className=''" onmousedown="this.className='mousedown'"
+                       onmouseover="this.className='hover'" value="搜索" id="sbutton"/>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="ding">
-<h1 id="logo"><a href="/" title="磁力云"><img src="/image/logo-s.png" width="180" height="40" alt="磁力云(www.ciliyun.org)"/></a></h1>
-<div id="sbox">
-<form name="btform" action="/">
-<input type="text" autocomplete="off" id="input" name="kw" placeholder="请输入电影、音乐、软件等资源名称" class="stbox" value=""/>
-<input type="submit" onmouseout="this.className=''" onmousedown="this.className='mousedown'" onmouseover="this.className='hover'" value="搜索" id="sbutton"/>
-</form>
-</div>
-</div></div>
+    <div id="container">
+        <div class="mainleft">
+            <div class="main">
+                <div class="T1">
+                    逃出绝命镇.2017.中英字幕￡CMCT呆呆
+                </div>
+                <br>
+                <br>
+                <div id="hash_newdown" style="width:100%;">
+                    <textarea id="fe_text" onclick="this.select();">magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e</textarea>
+                    <div class="ad_nei2" style="margin: auto auto auto 5px; text-align: center;">
+                    </div>
+                    <br>
+                    <div class="down_btns">
+                        <button id="d_clip_button" class="botton1" data-clipboard-target="fe_text">
+                            <b>
+                                复制到剪贴板
+                            </b>
+                        </button>
+                        <a href="magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e">
+                            在迅雷/旋风/bitcomet中打开
+                        </a>
+                        <a href="http://www.youwuyun.com/pan/" target="_blank">
+                            网盘播放
+                        </a>
+                        <div class="botton" id="testClick">
+                            扫描二维码/手机迅雷
+                        </div>
+                        <a href="http://www.ciliyun.org/Index/jc.html" target="_blank">
+                            使用教程
+                        </a>
+                    </div>
+                    <script type="text/javascript">
+                        C$('testClick').onclick = function () {
+                            var neirong = '<div><img  src="http://qr.liantu.com/api.php?w=250&m=10&text=magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e&size=110" class="imgd" /></div>';
+                            cwxbox.box.show(neirong);
+                        }
 
+                        function C$(id) {
+                            return document.getElementById(id);
+                        }
 
-<div class="ding">
-<div class="leftconbox">
-<ul class="sidenav1">
-<script type='text/javascript' src='/js/ad.js'></script>
-</ul>
-</div>
-<div id="container">
-<div class="mainleft">
-<div class="main"><div class="T1">
-逃出绝命镇.2017.中英字幕￡CMCT呆呆 </div>
-<br>
-<div class="bdsharebuttonbox">
-<p>
-<span style="font-size:13px">
-分享到：
-</span>
-</p>
-</a>
-<a title="分享到" href="#" class="bds_more" data-cmd="more">
-</a>
-<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">
-</a>
-<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">
-</a>
-<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">
-</a>
-<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">
-</a>
-<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">
-</a>
-<a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧">
-</a>
-<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">
-</a>
-</div>
-<br>
-<div id="hash_newdown" style="width:100%;">
-<textarea id="fe_text" onclick="this.select();">magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e</textarea>
-<div class="ad_nei2" style="margin: auto auto auto 5px; text-align: center;">
-</div>
-<br>
-<div class="down_btns">
-<button id="d_clip_button" class="botton1" data-clipboard-target="fe_text">
-<b>
-复制到剪贴板
-</b>
-</button>
-<a href="magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e">
-在迅雷/旋风/bitcomet中打开
-</a>
-<a href="http://www.youwuyun.com/pan/" target="_blank">
-网盘播放
-</a>
-<div class="botton" id="testClick">
-扫描二维码/手机迅雷
-</div>
-<a href="http://www.ciliyun.org/Index/jc.html" target="_blank">
-使用教程
-</a>
-</div>
-<script type="text/javascript">
-                                    C$('testClick').onclick = function() {
-                                        var neirong = '<div><img  src="http://qr.liantu.com/api.php?w=250&m=10&text=magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e&size=110" class="imgd" /></div>';
-                                        cwxbox.box.show(neirong);
+                        //定义窗体对象
+                        var cwxbox = {};
+
+                        cwxbox.box = function () {
+                            var bg, wd, cn, ow, oh, o = true,
+                                time = null;
+                            return {
+                                show: function (c, t, w, h) {
+                                    if (o) {
+                                        bg = document.createElement('div');
+                                        bg.id = 'cwxBg';
+                                        wd = document.createElement('div');
+                                        wd.id = 'cwxWd';
+                                        cn = document.createElement('div');
+                                        cn.id = 'cwxCn';
+                                        document.body.appendChild(bg);
+                                        document.body.appendChild(wd);
+                                        wd.appendChild(cn);
+                                        bg.onclick = cwxbox.box.hide;
+                                        window.onresize = this.init;
+                                        window.onscroll = this.scrolls;
+                                        o = false;
                                     }
-
-                                    function C$(id) {
-                                        return document.getElementById(id);
+                                    if (w && h) {
+                                        var inhtml = '<iframe src="' + c + '" width="' + w + '" height="' + h + '" frameborder="0"></iframe>';
+                                    } else {
+                                        var inhtml = c;
                                     }
-
-                                    //定义窗体对象
-                                    var cwxbox = {};
-
-                                    cwxbox.box = function() {
-                                        var bg, wd, cn, ow, oh, o = true,
-                                        time = null;
-                                        return {
-                                            show: function(c, t, w, h) {
-                                                if (o) {
-                                                    bg = document.createElement('div');
-                                                    bg.id = 'cwxBg';
-                                                    wd = document.createElement('div');
-                                                    wd.id = 'cwxWd';
-                                                    cn = document.createElement('div');
-                                                    cn.id = 'cwxCn';
-                                                    document.body.appendChild(bg);
-                                                    document.body.appendChild(wd);
-                                                    wd.appendChild(cn);
-                                                    bg.onclick = cwxbox.box.hide;
-                                                    window.onresize = this.init;
-                                                    window.onscroll = this.scrolls;
-                                                    o = false;
-                                                }
-                                                if (w && h) {
-                                                    var inhtml = '<iframe src="' + c + '" width="' + w + '" height="' + h + '" frameborder="0"></iframe>';
-                                                } else {
-                                                    var inhtml = c;
-                                                }
-                                                cn.innerHTML = inhtml;
-                                                oh = this.getCss(wd, 'offsetHeight');
-                                                ow = this.getCss(wd, 'offsetWidth');
-                                                this.init();
-                                                this.alpha(bg, 50, 1);
-                                                this.drag(wd);
-                                                if (t) {
-                                                    time = setTimeout(function() {
-                                                        cwxbox.box.hide()
-                                                    },
-                                                    t * 1000);
-                                                }
+                                    cn.innerHTML = inhtml;
+                                    oh = this.getCss(wd, 'offsetHeight');
+                                    ow = this.getCss(wd, 'offsetWidth');
+                                    this.init();
+                                    this.alpha(bg, 50, 1);
+                                    this.drag(wd);
+                                    if (t) {
+                                        time = setTimeout(function () {
+                                                cwxbox.box.hide()
                                             },
-                                            hide: function() {
-                                                cwxbox.box.alpha(wd, 0, -1);
-                                                clearTimeout(time);
-                                            },
-                                            init: function() {
-                                                bg.style.height = cwxbox.page.total(1) + 'px';
-                                                bg.style.width = '';
-                                                bg.style.width = cwxbox.page.total(0) + 'px';
-                                                var h = (cwxbox.page.height() - oh) / 2;
-                                                wd.style.top = (h + cwxbox.page.top()) + 'px';
-                                                wd.style.left = (cwxbox.page.width() - ow) / 2 + 'px';
-                                            },
-                                            scrolls: function() {
-                                                var h = (cwxbox.page.height() - oh) / 2;
-                                                wd.style.top = (h + cwxbox.page.top()) + 'px';
-                                            },
-                                            alpha: function(e, a, d) {
-                                                clearInterval(e.ai);
-                                                if (d == 1) {
-                                                    e.style.opacity = 0;
-                                                    e.style.filter = 'alpha(opacity=0)';
-                                                    e.style.display = 'block';
-                                                }
-                                                e.ai = setInterval(function() {
-                                                    cwxbox.box.ta(e, a, d)
-                                                },
-                                                40);
-                                            },
-                                            ta: function(e, a, d) {
-                                                var anum = Math.round(e.style.opacity * 100);
-                                                if (anum == a) {
-                                                    clearInterval(e.ai);
-                                                    if (d == -1) {
-                                                        e.style.display = 'none';
-                                                        if (e == wd) {
-                                                            this.alpha(bg, 0, -1);
-                                                        }
-                                                    } else {
-                                                        if (e == bg) {
-                                                            this.alpha(wd, 100, 1);
-                                                        }
-                                                    }
-                                                } else {
-                                                    var n = Math.ceil((anum + ((a - anum) * .5)));
-                                                    n = n == 1 ? 0 : n;
-                                                    e.style.opacity = n / 100;
-                                                    e.style.filter = 'alpha(opacity=' + n + ')';
-                                                }
-                                            },
-                                            getCss: function(e, n) {
-                                                var e_style = e.currentStyle ? e.currentStyle: window.getComputedStyle(e, null);
-                                                if (e_style.display === 'none') {
-                                                    var clonDom = e.cloneNode(true);
-                                                    clonDom.style.cssText = 'position:absolute; display:block; top:-3000px;';
-                                                    document.body.appendChild(clonDom);
-                                                    var wh = clonDom[n];
-                                                    clonDom.parentNode.removeChild(clonDom);
-                                                    return wh;
-                                                }
-                                                return e[n];
-                                            },
-                                            drag: function(e) {
-                                                var startX, startY, mouse;
-                                                mouse = {
-                                                    mouseup: function() {
-                                                        if (e.releaseCapture) {
-                                                            e.onmousemove = null;
-                                                            e.onmouseup = null;
-                                                            e.releaseCapture();
-                                                        } else {
-                                                            document.removeEventListener("mousemove", mouse.mousemove, true);
-                                                            document.removeEventListener("mouseup", mouse.mouseup, true);
-                                                        }
-                                                    },
-                                                    mousemove: function(ev) {
-                                                        var oEvent = ev || event;
-                                                        e.style.left = oEvent.clientX - startX + "px";
-                                                        e.style.top = oEvent.clientY - startY + "px";
-                                                    }
-                                                }
-                                                e.onmousedown = function(ev) {
-                                                    var oEvent = ev || event;
-                                                    startX = oEvent.clientX - this.offsetLeft;
-                                                    startY = oEvent.clientY - this.offsetTop;
-                                                    if (e.setCapture) {
-                                                        e.onmousemove = mouse.mousemove;
-                                                        e.onmouseup = mouse.mouseup;
-                                                        e.setCapture();
-                                                    } else {
-                                                        document.addEventListener("mousemove", mouse.mousemove, true);
-                                                        document.addEventListener("mouseup", mouse.mouseup, true);
-                                                    }
-                                                }
-
+                                            t * 1000);
+                                    }
+                                },
+                                hide: function () {
+                                    cwxbox.box.alpha(wd, 0, -1);
+                                    clearTimeout(time);
+                                },
+                                init: function () {
+                                    bg.style.height = cwxbox.page.total(1) + 'px';
+                                    bg.style.width = '';
+                                    bg.style.width = cwxbox.page.total(0) + 'px';
+                                    var h = (cwxbox.page.height() - oh) / 2;
+                                    wd.style.top = (h + cwxbox.page.top()) + 'px';
+                                    wd.style.left = (cwxbox.page.width() - ow) / 2 + 'px';
+                                },
+                                scrolls: function () {
+                                    var h = (cwxbox.page.height() - oh) / 2;
+                                    wd.style.top = (h + cwxbox.page.top()) + 'px';
+                                },
+                                alpha: function (e, a, d) {
+                                    clearInterval(e.ai);
+                                    if (d == 1) {
+                                        e.style.opacity = 0;
+                                        e.style.filter = 'alpha(opacity=0)';
+                                        e.style.display = 'block';
+                                    }
+                                    e.ai = setInterval(function () {
+                                            cwxbox.box.ta(e, a, d)
+                                        },
+                                        40);
+                                },
+                                ta: function (e, a, d) {
+                                    var anum = Math.round(e.style.opacity * 100);
+                                    if (anum == a) {
+                                        clearInterval(e.ai);
+                                        if (d == -1) {
+                                            e.style.display = 'none';
+                                            if (e == wd) {
+                                                this.alpha(bg, 0, -1);
+                                            }
+                                        } else {
+                                            if (e == bg) {
+                                                this.alpha(wd, 100, 1);
                                             }
                                         }
-                                    } ()
-
-                                    cwxbox.page = function() {
-                                        return {
-                                            top: function() {
-                                                return document.documentElement.scrollTop || document.body.scrollTop
-                                            },
-                                            width: function() {
-                                                return self.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-                                            },
-                                            height: function() {
-                                                return self.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-                                            },
-                                            total: function(d) {
-                                                var b = document.body,
-                                                e = document.documentElement;
-                                                return d ? Math.max(Math.max(b.scrollHeight, e.scrollHeight), Math.max(b.clientHeight, e.clientHeight)) : Math.max(Math.max(b.scrollWidth, e.scrollWidth), Math.max(b.clientWidth, e.clientWidth))
+                                    } else {
+                                        var n = Math.ceil((anum + ((a - anum) * .5)));
+                                        n = n == 1 ? 0 : n;
+                                        e.style.opacity = n / 100;
+                                        e.style.filter = 'alpha(opacity=' + n + ')';
+                                    }
+                                },
+                                getCss: function (e, n) {
+                                    var e_style = e.currentStyle ? e.currentStyle : window.getComputedStyle(e, null);
+                                    if (e_style.display === 'none') {
+                                        var clonDom = e.cloneNode(true);
+                                        clonDom.style.cssText = 'position:absolute; display:block; top:-3000px;';
+                                        document.body.appendChild(clonDom);
+                                        var wh = clonDom[n];
+                                        clonDom.parentNode.removeChild(clonDom);
+                                        return wh;
+                                    }
+                                    return e[n];
+                                },
+                                drag: function (e) {
+                                    var startX, startY, mouse;
+                                    mouse = {
+                                        mouseup: function () {
+                                            if (e.releaseCapture) {
+                                                e.onmousemove = null;
+                                                e.onmouseup = null;
+                                                e.releaseCapture();
+                                            } else {
+                                                document.removeEventListener("mousemove", mouse.mousemove, true);
+                                                document.removeEventListener("mouseup", mouse.mouseup, true);
                                             }
+                                        },
+                                        mousemove: function (ev) {
+                                            var oEvent = ev || event;
+                                            e.style.left = oEvent.clientX - startX + "px";
+                                            e.style.top = oEvent.clientY - startY + "px";
                                         }
-                                    } ()
-                                </script>
-</div>
+                                    }
+                                    e.onmousedown = function (ev) {
+                                        var oEvent = ev || event;
+                                        startX = oEvent.clientX - this.offsetLeft;
+                                        startY = oEvent.clientY - this.offsetTop;
+                                        if (e.setCapture) {
+                                            e.onmousemove = mouse.mousemove;
+                                            e.onmouseup = mouse.mouseup;
+                                            e.setCapture();
+                                        } else {
+                                            document.addEventListener("mousemove", mouse.mousemove, true);
+                                            document.addEventListener("mouseup", mouse.mouseup, true);
+                                        }
+                                    }
 
-<br>
-<div class="alert alert-success" role="alert" style="font-size:12px; font-family:'微软雅黑';">
-<button type="button" class="close" data-dismiss="alert">
+                                }
+                            }
+                        }()
+
+                        cwxbox.page = function () {
+                            return {
+                                top: function () {
+                                    return document.documentElement.scrollTop || document.body.scrollTop
+                                },
+                                width: function () {
+                                    return self.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+                                },
+                                height: function () {
+                                    return self.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+                                },
+                                total: function (d) {
+                                    var b = document.body,
+                                        e = document.documentElement;
+                                    return d ? Math.max(Math.max(b.scrollHeight, e.scrollHeight), Math.max(b.clientHeight, e.clientHeight)) : Math.max(Math.max(b.scrollWidth, e.scrollWidth), Math.max(b.clientWidth, e.clientWidth))
+                                }
+                            }
+                        }()
+                    </script>
+                </div>
+                <br>
+                <div class="alert alert-success" role="alert" style="font-size:12px; font-family:'微软雅黑';">
+                    <button type="button" class="close" data-dismiss="alert">
 <span aria-hidden="true">
 ×
 </span>
-<span class="sr-only">
+                        <span class="sr-only">
 Close
 </span>
-</button>
-<p>
-磁力云是通过BitTorrent协议加入DHT网络，实时的自动采集数据，但是仅存储文件的标题、大小、文件列表、文件标识符（磁力链接）等基础信息，我们不存储任何BT文件或Torrent文件，我们的工作原理类似google和baidu。所有的搜索结果均为用户的指令自动获得，本站不承担任何责任！
-</p>
-<p>
-btkuaisou.cc join the DHT network through the BitTorrent protocol, automatic
-data collection in real time, but the title, size, the list of files, file
-identifier only file storage (magnetic link) and other basic information,
-we do not store any BT or Torrent file, we work on a similar principle
-to Google and baidu. All search results are automatically obtained user's
-instruction, this site does not bear any responsibility!
-</p>
-</div>
-<span style="font-size:16px;font-weight: 600;">
+                    </button>
+                    <p>
+                        磁力+是通过BitTorrent协议加入DHT网络，实时的自动采集数据，但是仅存储文件的标题、大小、文件列表、文件标识符（磁力链接）等基础信息，我们不存储任何BT文件或Torrent文件，我们的工作原理类似google和baidu。所有的搜索结果均为用户的指令自动获得，本站不承担任何责任！
+                    </p>
+                    <p>
+                        bt.china-00.com join the DHT network through the BitTorrent protocol, automatic
+                        data collection in real time, but the title, size, the list of files, file
+                        identifier only file storage (magnetic link) and other basic information,
+                        we do not store any BT or Torrent file, we work on a similar principle
+                        to Google and baidu. All search results are automatically obtained user's
+                        instruction, this site does not bear any responsibility!
+                    </p>
+                </div>
+                <span style="font-size:16px;font-weight: 600;">
 种子详情
 </span>
-<dl class="BotInfo">
-<p>
-HASH：
-4f6a61cbe398659e12a81929ca2cfa2e851a332e </p>
-<p>
-创建日期: 2017-07-07 </p>
-<p>
-文件大小: 3.2 GB </p>
-<p>
-文件数量: 4 </p>
-</p>
-<p>
-磁力链接：
-<a href="magnet:?xt=urn:btih:" rel="nofollow">
-magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e </a>
-&nbsp;请使用迅雷，旋风，百度云盘离线，115网盘离线等进行下载
-</p>
-<br>
-<span style="font-size:16px;font-weight: 600;">
-友情提示：
-<p>
+                <dl class="BotInfo">
+                    <p>
+                        HASH：
+                        4f6a61cbe398659e12a81929ca2cfa2e851a332e </p>
+                    <p>
+                        创建日期: 2017-07-07 </p>
+                    <p>
+                        文件大小: 3.2 GB </p>
+                    <p>
+                        文件数量: 4 </p>
+                    </p>
+                    <p>
+                        磁力链接：
+                        <a href="magnet:?xt=urn:btih:" rel="nofollow">
+                            magnet:?xt=urn:btih:4f6a61cbe398659e12a81929ca2cfa2e851a332e </a>
+                        &nbsp;请使用迅雷，旋风，百度云盘离线，115网盘离线等进行下载
+                    </p>
+                    <br>
+                    <span style="font-size:16px;font-weight: 600;">
+                        友情提示：</span>
+                    <p>
 <span style="font-size:13px">
 亲，你造吗？将网页分享给您的基友，下载的人越多速度越快哦！
 </span>
-</p>
-<script>
-                                        window._bd_share_config = {
-                                            "common": {
-                                                "bdSnsKey": {},
-                                                "bdText": "",
-                                                "bdMini": "2",
-                                                "bdMiniList": false,
-                                                "bdPic": "",
-                                                "bdStyle": "0",
-                                                "bdSize": "16"
-                                            },
-                                            "share": {}
-                                        };
-                                        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~ ( - new Date() / 36e5)];
-                                    </script>
-<br>
-<span style="font-size:16px;font-weight: 600;">
+                    </p>
+                    <br>
+                    <span style="font-size:16px;font-weight: 600;">
 文件列表：
 </span>
-</dl>
-<ol class="flist"></ol>
-[逃出绝命镇].Get.Out.2017.BluRay.720p.x264.AC3-CMCT.mkv<br/>3.2 GB<br/>[逃出绝命镇].Get.Out.2017.BluRay.720p.x264.AC3-CMCT_s.jpg<br/>659 KB<br/>逃出绝命镇.2017.jpg<br/>217 KB<br/>逃出绝命镇.2017.txt<br/>4 KB <br>
-<br>
-<br>
-<div class="leftconbox">
-<ul class="sidenav1">
-<script type='text/javascript' src='/js/ac1.js'></script>
-</ul>
+                </dl>
+                <ol class="flist"></ol>
+                [逃出绝命镇].Get.Out.2017.BluRay.720p.x264.AC3-CMCT.mkv<br/>3.2 GB<br/>[逃出绝命镇].Get.Out.2017.BluRay.720p.x264.AC3-CMCT_s.jpg<br/>659
+                KB<br/>逃出绝命镇.2017.jpg<br/>217 KB<br/>逃出绝命镇.2017.txt<br/>4 KB <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class="tmall_1111_left"><a target="_blank" href="http://tao.dsqndh.com"><img style="max-width:100%;max-height:100%;" src="http://p1.bpimg.com/1949/17a6d83cbb892907.gif"></a></div>
-</div>
-</div></div></div></div>
-
-<div id="footer">
-<div class="ding">
-<div class="footerss"><span style="float:left">Copyright (c) 磁力云 All Rights Reserved&nbsp;</span></div>
-<div class="footerss"><span style="float:left"><a href="/about/gy.html" target="_blank">免责声明&nbsp;</a></span></div>
-<div class="footerss"><span style="float:left"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254599969'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1254599969' type='text/javascript'%3E%3C/script%3E"));</script></span></div>
-<div class="footerss"><span style="float:right">投放广告： <a href="http://wpa.qq.com/msgrd?v=3&uin=38827754&site=qq&menu=yes" target=_blank>点击联系</a></span></div>
-</div>
+{% end %}
+{% block ex_js %}
 <script charset="utf-8" src="http://www.ciliyun.org/pingbi.js"></script>
 <script type="text/javascript" src="http://o8nfomx1t.bkt.clouddn.com/ZeroClipboard.min.js"></script>
 <script type="text/javascript">
-// 定义一个新的复制对象
-var clip = new ZeroClipboard( document.getElementById("d_clip_button"), {
-  moviePath: "http://www.ciliyun.org/js/ZeroClipboard.swf"
-} );
+    // 定义一个新的复制对象
+    var clip = new ZeroClipboard(document.getElementById("d_clip_button"), {
+        moviePath: "http://www.ciliyun.org/js/ZeroClipboard.swf"
+    });
 
-// 复制内容到剪贴板成功后的操作
-clip.on( 'complete', function(client, args) {
-   alert("复制成功，复制内容为："+ args.text);
-} );
+    // 复制内容到剪贴板成功后的操作
+    clip.on('complete', function (client, args) {
+        alert("复制成功，复制内容为：" + args.text);
+    });
 
 </script>
-</body>
-</html>
+{% end %}

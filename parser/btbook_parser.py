@@ -2,10 +2,13 @@
 
 import re
 from urlparse import unquote, urljoin
+from parser.base import HotWordParser
 from parser.base import ListParser
 from parser.base import DetailParser
+from parser.base import HotWordItem
 from parser.base import ListItem
 from parser.base import DetailItem
+import requests
 
 
 class BtbookListParser(ListParser):
@@ -105,8 +108,9 @@ class BtbookListParser(ListParser):
         return tags
 
     @classmethod
-    def run(cls, document):
+    def run(cls, word):
         item_list = list()
+        document = requests.get("http://www.btbook.org/%s-first-asc-1.html" % word).content
         soup = cls.get_soup(document)
         tags = cls.get_tags(soup)
         for tag in tags:
@@ -217,3 +221,16 @@ class BtbookDetailParser(DetailParser):
         meta.magnet_link = cls.get_magnet_link(soup)
         meta.containt = cls.get_contain(soup)
         return meta
+
+
+class BtbookHotWordParser(HotWordParser):
+    @classmethod
+    def get_hot_words(cls, soup):
+        hot_words = list()
+        return hot_words
+
+    @classmethod
+    def run(cls, document):
+        soup = cls.get_soup(document)
+        hot_words = cls.get_hot_words(soup)
+        return hot_words
